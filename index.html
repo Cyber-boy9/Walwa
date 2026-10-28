@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#cdb4ff">
+<title>Mochi's World 🐱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="sky"></div>
+<canvas id="fx"></canvas>
+
+<div id="app">
+  <header class="hud">
+    <div class="title" id="hudTitle">MOCHI'S<br>WORLD</div>
+    <div class="right">
+      <button class="iconbtn hidden" id="homeBtn" aria-label="home">🏠</button>
+      <button class="iconbtn" id="mute" aria-label="toggle sound">🔊</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <!-- boot -->
+    <section id="s-boot" class="screen active">
+      <div class="logo">MOCHI'S<br>WORLD<small id="bootFor">a little world, just for you ✨</small></div>
+      <canvas id="bootCat" width="128" height="112"></canvas>
+      <div class="bar"><i id="bootBar"></i></div>
+      <div id="bootMsg">…</div>
+      <button class="btn pink glow hidden" id="startBtn">▶ PRESS START</button>
+    </section>
+
+    <!-- first-time name pick -->
+    <section id="s-name" class="screen center">
+      <canvas id="nameCat" width="128" height="112"></canvas>
+      <div class="bigtitle">WHAT SHOULD<br>I CALL YOU?</div>
+      <div class="chips" id="nameChips"></div>
+      <input id="nameInput" maxlength="16" placeholder="or type your own…">
+      <button class="btn pink" id="nameGo">THAT'S ME ▶</button>
+    </section>
+
+    <!-- hub -->
+    <section id="s-hub" class="screen">
+      <div id="roomWrap"><canvas id="room" width="360" height="230"></canvas></div>
+      <div class="dialog small" id="hubSay"><div class="who" id="hubWho">MOCHI 🐱</div><div id="hubText"></div></div>
+      <div class="menu" id="menu"></div>
+    </section>
+
+    <!-- jukebox -->
+    <section id="s-music" class="screen panel">
+      <div class="card">
+        <div class="boss"><b>JUKEBOX</b> 🎶</div>
+        <canvas id="jukeCv" width="320" height="90"></canvas>
+        <div class="select" id="songSelect">
+          <button class="selbtn" id="selBtn"><span id="selLabel">pick a song…</span><i>▼</i></button>
+          <ul class="sellist hidden" id="selList"></ul>
+        </div>
+        <div class="row">
+          <button class="btn small ghost" id="prevBtn">⏮</button>
+          <button class="btn small pink" id="playBtn">▶</button>
+          <button class="btn small ghost" id="nextBtn">⏭</button>
+        </div>
+        <label for="vol">VOLUME</label>
+        <input id="vol" type="range" min="0" max="100" value="70">
+        <div class="hint" id="songHint"></div>
+      </div>
+    </section>
+
+    <!-- mochi studio -->
+    <section id="s-mochi" class="screen panel">
+      <div class="card">
+        <div class="boss"><b>MOCHI STUDIO</b> 🐱</div>
+        <canvas id="mochiCv" width="192" height="168"></canvas>
+        <label for="mochiName">NAME YOUR CAT</label>
+        <input id="mochiName" maxlength="12" placeholder="Mochi">
+        <div id="mochiOpts"></div>
+        <button class="btn pink" id="mochiDone">SAVE ✓</button>
+      </div>
+    </section>
+
+    <!-- wardrobe -->
+    <section id="s-ward" class="screen panel">
+      <div class="card">
+        <div class="boss"><b>WARDROBE</b> 👗</div>
+        <canvas id="wardCv" width="192" height="224"></canvas>
+        <div class="chips" id="presetChips"></div>
+        <div id="wardOpts"></div>
+        <div class="row">
+          <button class="btn small ghost" id="shuffleBtn">🎲 SHUFFLE</button>
+          <button class="btn small ghost" id="snapBtn">📸 SNAP</button>
+          <button class="btn small pink" id="wardDone">SAVE ✓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- coming soon -->
+    <section id="s-soon" class="screen center">
+      <canvas id="soonCat" width="128" height="112"></canvas>
+      <div class="bigtitle" id="soonTitle">SOON</div>
+      <p class="bigtext" id="soonText"></p>
+      <button class="btn ghost" id="soonBack">◀ BACK</button>
+    </section>
+  </main>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/core.js"></script>
+<script src="js/sprites.js"></script>
+<script src="js/jukebox.js"></script>
+<script src="js/studio.js"></script>
+<script src="js/hub.js"></script>
+</body>
+</html>
